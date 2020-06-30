@@ -17,9 +17,12 @@ public class Principal {
 			
 			ArrayList<ArrayList<Integer>> l_A = r_A.readFile();
 			ArrayList<ArrayList<Integer>> l_B = r_B.readFile();
+
+			Sequencial s = new Sequencial(l_A, l_B);
+			System.out.println(s.multiplicarMatrizes());
 			
-			System.out.println(l_A);
-			System.out.println(l_B);
+			//System.out.println(l_A);
+			//System.out.println(l_B);
 			
 			
 		}
