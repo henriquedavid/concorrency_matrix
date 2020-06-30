@@ -23,23 +23,16 @@ public class Reader {
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		String s;
 		
-		int linha = 0;
-		
 		ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
-		
+		s = br.readLine();
 		while((s = br.readLine()) != null) {
-			if(linha == 0) {
-			} else {
-				ArrayList<Integer> new_list = new ArrayList<Integer>();
-				String[] l = s.split(" ");
-				for(String o : l) {
-					new_list.add(Integer.parseInt(o));
-				}
-				list.add(new_list);
+			ArrayList<Integer> new_list = new ArrayList<Integer>();
+			String[] l = s.split(" ");
+			for(String o : l) {
+				new_list.add(Integer.parseInt(o));
 			}
-			linha++;
+			list.add(new_list);
 		}
-		
 		
 		br.close();
 		
