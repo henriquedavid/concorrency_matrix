@@ -65,7 +65,7 @@ public class Reader {
 		}
 	}
 	
-	public void outTimes(ArrayList<Long> lista, String dimension) {
+	public void outTimes(ArrayList<Long> lista, String dimension, String tipo) {
 		try {
 			BufferedWriter w = new BufferedWriter(new FileWriter("times_"+dimension+"x"+dimension+".txt", true));
 			
@@ -73,7 +73,7 @@ public class Reader {
 			Long max = lista.get(0);
 			Long min = lista.get(0);
 			
-			w.append("Resultados:\n");
+			w.append("\nTipo: " + tipo + " - Resultados:\n");
 			for(Long e: lista) {
 				if(e > max)
 					max = e;

@@ -63,7 +63,7 @@ public class Principal {
 				times.add(elapsed);
 			}
 			
-			r_R.outTimes(times, dimensao);
+			r_R.outTimes(times, dimensao, versao);
 			
 		}
 
