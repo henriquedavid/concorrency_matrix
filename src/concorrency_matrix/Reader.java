@@ -1,9 +1,11 @@
 package concorrency_matrix;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,6 +45,24 @@ public class Reader {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public void outFile(ArrayList<ArrayList<Integer>> result, String dimension){
+		try {
+			BufferedWriter w = new BufferedWriter(new FileWriter(file_name, true));
+			
+			w.write(dimension + " " + dimension + "\n");
+			for(ArrayList<Integer> i : result) {
+				for(Integer o : i) {
+					w.append(o.toString() + " ");
+				}
+				w.append("\n");
+			}
+			w.close();
+			
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
