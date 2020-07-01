@@ -64,5 +64,44 @@ public class Reader {
 			e.printStackTrace();
 		}
 	}
+	
+	public void outTimes(ArrayList<Long> lista, String dimension) {
+		try {
+			BufferedWriter w = new BufferedWriter(new FileWriter("times_"+dimension+"x"+dimension+".txt", true));
+			
+			Long media = (long) 0;
+			Long max = lista.get(0);
+			Long min = lista.get(0);
+			
+			w.append("Resultados:\n");
+			for(Long e: lista) {
+				if(e > max)
+					max = e;
+				if(e < min)
+					min = e;
+				w.append(e.toString() + "\n");
+				media += e;
+			}
+			
+			media /= lista.size();
+			w.append("-----------------\n");
+			w.append("Media: " + media + "\n");
+			w.append("Max: " + max + "\n");
+			w.append("Min: " + min + "\n");
+			
+			Double somatorio = 0.0;
+			for(Long e : lista) {
+				somatorio += Math.pow((e - media),2);
+			}
+			
+			Double desvio = Math.sqrt(somatorio/20);
+			 
+			w.append("Desvio: " + desvio);
+			
+			w.close();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
