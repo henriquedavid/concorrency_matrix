@@ -36,7 +36,7 @@ public class Principal {
 					inicializadorMatrix(size_);
 			
 					ArrayList<Concorrente> l_conc = new ArrayList<>();
-				
+					
 			
 					for(int i = 0; i < size_; i++) {
 						Concorrente li = new Concorrente(i, l_A, l_B, l_R, "thread" + i);
