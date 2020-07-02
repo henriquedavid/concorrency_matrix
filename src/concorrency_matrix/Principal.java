@@ -25,11 +25,12 @@ public class Principal {
 			
 			for(int a = 0; a < 20; a++) {
 			
-				Long start = System.nanoTime();
+				Long start = System.currentTimeMillis();
 			
 				if(versao.equals("S")) {
 					Sequencial s = new Sequencial(l_A, l_B);
-					r_R.outFile(s.multiplicarMatrizes(), dimensao);
+					l_R = s.multiplicarMatrizes();
+					//r_R.outFile(l_, dimensao);
 				} else if(versao.equals("C")) {
 					Integer size_ = Integer.parseInt(dimensao);
 					l_R = new ArrayList<ArrayList<Integer>>();
@@ -52,17 +53,17 @@ public class Principal {
 						e.printStackTrace();
 					}
 				
-					r_R.outFile(l_R, dimensao);
 				
 				} else {
 					System.out.println("InvalidType: Only support S or C");
 				}
 				
-				Long end = System.nanoTime();
+				Long end = System.currentTimeMillis();
 				Long elapsed = end - start;
 				times.add(elapsed);
 			}
 			
+			r_R.outFile(l_R, dimensao);
 			r_R.outTimes(times, dimensao, versao);
 			
 		}

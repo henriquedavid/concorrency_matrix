@@ -49,8 +49,7 @@ public class Reader {
 	
 	public void outFile(ArrayList<ArrayList<Integer>> result, String dimension){
 		try {
-			BufferedWriter w = new BufferedWriter(new FileWriter(file_name, true));
-			
+			BufferedWriter w = new BufferedWriter(new FileWriter(file_name, false));
 			w.write(dimension + " " + dimension + "\n");
 			for(ArrayList<Integer> i : result) {
 				for(Integer o : i) {
@@ -96,7 +95,7 @@ public class Reader {
 			
 			Double desvio = Math.sqrt(somatorio/20);
 			 
-			w.append("Desvio: " + desvio);
+			w.append("Desvio: " + desvio + "\n");
 			
 			w.close();
 		} catch(IOException e) {
