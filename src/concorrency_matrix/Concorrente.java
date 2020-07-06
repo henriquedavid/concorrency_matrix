@@ -24,16 +24,17 @@ public class Concorrente extends Thread{
 		
 		int tamanho = matrixA.size();
 		
-		
-		ArrayList<Integer> aux = new ArrayList<Integer>();
-		
+		// Percorrendo as colunas da matriz B
 		for(int j = 0; j < tamanho; j++) {
 			
 			int soma = 0;
 			
+			// Realizando o cálculo da multiplicação das matrizes
 			for(int k = 0; k < tamanho; k++){
 	            soma += (matrixA.get(x).get(k) * matrixB.get(k).get(j));
 	        }
+			
+			// Atualizando o valor na matriz resultante.
 			matrixR.get(x).set(j, soma);
 		}
     }

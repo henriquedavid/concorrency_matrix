@@ -18,6 +18,7 @@ public class Reader {
 		this.file_name = file;
 	}
 	
+	// Realizando a leitura de cada matriz informada.
 	public ArrayList<ArrayList<Integer>> readFile(){
 		try {
 		File file  = new File("./inputs/Matrizes/"+this.file_name);
@@ -47,6 +48,7 @@ public class Reader {
 		return null;
 	}
 	
+	// Escrevendo uma matriz de saída
 	public void outFile(ArrayList<ArrayList<Integer>> result, String dimension){
 		try {
 			BufferedWriter w = new BufferedWriter(new FileWriter(file_name, false));
@@ -64,6 +66,7 @@ public class Reader {
 		}
 	}
 	
+	// Escrevendo um arquivo de saída com os tempos das 20 execuções e analises dos arquivos
 	public void outTimes(ArrayList<Long> lista, String dimension, String tipo) {
 		try {
 			BufferedWriter w = new BufferedWriter(new FileWriter("times_"+dimension+"x"+dimension+".txt", true));
@@ -73,6 +76,8 @@ public class Reader {
 			Long min = lista.get(0);
 			
 			w.append("\nTipo: " + tipo + " - Resultados:\n");
+			
+			// Calculando o máximo, mínimo e a média; assim como adicionando o dado no arquivo de saída
 			for(Long e: lista) {
 				if(e > max)
 					max = e;
@@ -89,10 +94,12 @@ public class Reader {
 			w.append("Min: " + min + "\n");
 			
 			Double somatorio = 0.0;
+			// Calculando o somatorio
 			for(Long e : lista) {
 				somatorio += Math.pow((e - media),2);
 			}
 			
+			// Calculando o desvio
 			Double desvio = Math.sqrt(somatorio/20);
 			 
 			w.append("Desvio: " + desvio + "\n");
