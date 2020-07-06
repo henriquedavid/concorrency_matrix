@@ -24,8 +24,14 @@ public class Principal {
 			ArrayList<ArrayList<Integer>> l_B = r_B.readFile();
 			
 			for(int a = 0; a < 20; a++) {
-			
-				Long start = System.currentTimeMillis();
+				
+				Long start;
+				if(Integer.parseInt(dimensao) >= 512) {
+					start = System.currentTimeMillis();
+				} else {
+					start = System.nanoTime();
+				}
+
 			
 				if(versao.equals("S")) {
 					Sequencial s = new Sequencial(l_A, l_B);
@@ -58,7 +64,12 @@ public class Principal {
 					System.out.println("InvalidType: Only support S or C");
 				}
 				
-				Long end = System.currentTimeMillis();
+				Long end;
+				if(Integer.parseInt(dimensao) >= 512) {
+					end = System.currentTimeMillis();
+				} else {
+					end = System.nanoTime();
+				}
 				Long elapsed = end - start;
 				times.add(elapsed);
 			}
