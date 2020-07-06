@@ -2,6 +2,13 @@ package concorrency_matrix;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Abraão Dantas
+ * @author Henrique Medeiros
+ * 
+ * Classe com a implementação do algoritmo de multiplicação de matrizes na sua versão sequencial
+ */
 public class Sequencial{
 
     ArrayList<ArrayList<Integer>> A, B;

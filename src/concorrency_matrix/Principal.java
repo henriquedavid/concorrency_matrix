@@ -2,8 +2,17 @@ package concorrency_matrix;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Abraão Dantas
+ * @author Henrique Medeiros
+ * 
+ * Classe main da nossa aplicação, responsável por receber os argumentos
+ * e executar o nosso algoritmos
+ */
 public class Principal {
 	
+	//matriz resultado da multiplicação
 	static ArrayList<ArrayList<Integer>> l_R;
 	
 	public static void main(String[] args) {
@@ -31,9 +40,14 @@ public class Principal {
 			
 			// Iterando as 20 vezes
 			for(int a = 0; a < 20; a++) {
-			
-				// Começando o cronometro
-				Long start = System.currentTimeMillis();
+				//Começando o cronometro
+				Long start;
+				if(Integer.parseInt(dimensao) >= 512) {
+					start = System.currentTimeMillis();
+				} else {
+					start = System.nanoTime();
+				}
+
 			
 				// Verificando o tipo de execução (sequencial/concorrente)
 				if(versao.equals("S")) {
@@ -72,8 +86,14 @@ public class Principal {
 					System.out.println("InvalidType: Only support S or C");
 				}
 				
-				// Finalizando o cronometro e adicionando a lista times.
-				Long end = System.currentTimeMillis();
+				//Finalizando o cronometro e adicionando a lista times.
+				Long end;
+				if(Integer.parseInt(dimensao) >= 512) {
+					end = System.currentTimeMillis();
+				} else {
+					end = System.nanoTime();
+				}
+				
 				Long elapsed = end - start;
 				times.add(elapsed);
 			}

@@ -10,6 +10,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * 
+ * @author Abraão Dantas
+ * @author Henrique Medeiros
+ * 
+ * Classe responsável por fazer a leitura e escrita nos arquivos usados
+ * por nossa aplicação
+ */
 public class Reader {
 	
 	public String file_name;
@@ -51,7 +59,7 @@ public class Reader {
 	// Escrevendo uma matriz de saída
 	public void outFile(ArrayList<ArrayList<Integer>> result, String dimension){
 		try {
-			BufferedWriter w = new BufferedWriter(new FileWriter(file_name, false));
+			BufferedWriter w = new BufferedWriter(new FileWriter("results/" + file_name, false));
 			w.write(dimension + " " + dimension + "\n");
 			for(ArrayList<Integer> i : result) {
 				for(Integer o : i) {
@@ -69,7 +77,7 @@ public class Reader {
 	// Escrevendo um arquivo de saída com os tempos das 20 execuções e analises dos arquivos
 	public void outTimes(ArrayList<Long> lista, String dimension, String tipo) {
 		try {
-			BufferedWriter w = new BufferedWriter(new FileWriter("times_"+dimension+"x"+dimension+".txt", true));
+			BufferedWriter w = new BufferedWriter(new FileWriter("results/"+ "times_"+dimension+"x"+dimension+".txt", true));
 			
 			Long media = (long) 0;
 			Long max = lista.get(0);
