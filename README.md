@@ -1,5 +1,5 @@
 # concorrency_matrix
-- Para executar nosso programa é nencessário ter o Java instalado na sua máquina. Uma vez feito isso, abra o terminal (Linux) e dentro da pasta do projeto digite:
+- Para executar nosso programa é necessário ter o Java instalado na sua máquina. Uma vez feito isso, abra o terminal (Linux) e dentro da pasta do projeto digite:
 
 ```console
 java -jar SequentialxConcorrent.jar 2 S
